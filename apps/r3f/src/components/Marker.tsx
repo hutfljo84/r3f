@@ -84,6 +84,7 @@ export function Marker({ coord, radius }: MarkerProps) {
             </A.Cone>
             {isHovered && (
                 <Html
+                    occlude
                     position={[position[0], position[1] + 0.15, position[2]]}
                     as="div"
                     style={{
@@ -97,7 +98,7 @@ export function Marker({ coord, radius }: MarkerProps) {
                         fontSize: '1rem',
                     }}
                 >
-                    🌕 Aglaia
+                    🌕 WhiteHills
                 </Html>
             )}
         </>
