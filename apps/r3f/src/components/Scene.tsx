@@ -3,14 +3,6 @@ import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 
 export default function Scene() {
-    const sizes = {
-        width: window.innerWidth,
-        height: window.innerHeight,
-    };
-
-    const frustumSize = 430;
-    const aspect = sizes.width / sizes.height;
-
     return (
         <>
             <Canvas>

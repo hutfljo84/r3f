@@ -31,7 +31,7 @@ export function Earth({ coords }: EarthProps) {
     return (
         <group>
             {coords.map((coord) => {
-                return <Marker key={coord.hash} radius={2.6} coord={coord} />;
+                return <Marker key={coord.hash} radius={1} coord={coord} />;
             })}
             <Sphere args={[1, 1024, 1024]}>
                 <meshPhongMaterial
