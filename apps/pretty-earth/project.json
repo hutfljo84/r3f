@@ -1,0 +1,72 @@
+{
+    "name": "pretty-earth",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/pretty-earth/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/vite:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "outputPath": "dist/apps/pretty-earth"
+            },
+            "configurations": {
+                "development": {
+                    "mode": "development"
+                },
+                "production": {
+                    "mode": "production"
+                }
+            }
+        },
+        "serve": {
+            "executor": "@nx/vite:dev-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "pretty-earth:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "pretty-earth:build:development",
+                    "hmr": true
+                },
+                "production": {
+                    "buildTarget": "pretty-earth:build:production",
+                    "hmr": false
+                }
+            }
+        },
+        "preview": {
+            "executor": "@nx/vite:preview-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "pretty-earth:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "pretty-earth:build:development"
+                },
+                "production": {
+                    "buildTarget": "pretty-earth:build:production"
+                }
+            }
+        },
+        "test": {
+            "executor": "@nx/vite:test",
+            "outputs": ["coverage/apps/pretty-earth"],
+            "options": {
+                "passWithNoTests": true,
+                "reportsDirectory": "../../coverage/apps/pretty-earth"
+            }
+        },
+        "lint": {
+            "executor": "@nx/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/pretty-earth/**/*.{ts,tsx,js,jsx}"]
+            }
+        }
+    },
+    "tags": []
+}
